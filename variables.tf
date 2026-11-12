@@ -3,7 +3,7 @@
 
 variable "region" {
   description = "AWS region"
-  default     = "us-west-1"
+  default     = "eu-north-1"
 }
 
 variable "instance_type" {
@@ -18,3 +18,17 @@ variable "instance_name" {
   default     = "Provisioned by Terraform"
 }
 
+variable "aws_ami" {
+  description = "Konfiguracja obrazów AMI dla różnych systemów"
+  type = object({
+    ubuntu = object({
+      id = string
+    })
+  })
+  default = {
+    ubuntu = {
+      id = "ami-021aaf3749be66813"
+    }
+  }
+}
+  
